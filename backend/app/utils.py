@@ -14,7 +14,7 @@ def verify_password(plain_password: str, hashed_password: str) -> bool:
 
 # jwt helpers
 def create_access_token(data:dict) -> str:
-    to_encode = data.copy()
+    to_encode = data.copy() # copies the data dict to avoid modifying the original, usually the username
     expire = datetime.utcnow() + timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)
     to_encode.update({"exp": expire})
     return jwt.encode(to_encode, settings.SECRET_KEY, algorithm=settings.ALGORITHM)
