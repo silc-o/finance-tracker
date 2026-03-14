@@ -14,7 +14,6 @@ class Transaction(Base):
     id = Column(Integer, primary_key=True, index=True)
     amount = Column(Float, nullable=False)
     description = Column(String, nullable=True)
-    category = Column(String, nullable=False)
     type = Column(Enum(TransactionType), nullable=False)
     date = Column(DateTime, default=datetime.utcnow)
 

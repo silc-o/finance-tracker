@@ -20,7 +20,6 @@ def create_transaction(transaction: TransactionCreate, db: Session = Depends(get
     new_transaction = Transaction(
         amount=transaction.amount,
         description=transaction.description,
-        date=transaction.date,
         type=transaction.type,
         user_id=current_user.id
     )
@@ -50,7 +49,6 @@ def update_transaction(transaction_id: int, updated_data: TransactionCreate, db:
     
     transaction.amount = updated_data.amount
     transaction.description = updated_data.description
-    transaction.date = updated_data.date
     transaction.type = updated_data.type
     
     db.commit()

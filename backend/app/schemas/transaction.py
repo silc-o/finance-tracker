@@ -5,16 +5,14 @@ from app.models.transaction import TransactionType
 class TransactionCreate(BaseModel):
     amount: float
     description: str | None = None
-    date: datetime
     type: TransactionType
 
 class TransactionResponse(BaseModel):
     id: int
     amount: float
-    description: str | None = None
-    category: str
-    date: datetime
+    description: str | None
     type: TransactionType
+    date: datetime
     user_id: int
 
     class Config:
