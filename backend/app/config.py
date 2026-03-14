@@ -1,4 +1,4 @@
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings # * BaseSettings is used to read the .env file
 
 class Settings(BaseSettings):
     DATABASE_URL: str
